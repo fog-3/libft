@@ -1,31 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fosuna-g <fosuna-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/03 12:57:35 by fernando          #+#    #+#             */
-/*   Updated: 2023/11/29 16:17:43 by fosuna-g         ###   ########.fr       */
+/*   Created: 2023/11/29 17:48:00 by fosuna-g          #+#    #+#             */
+/*   Updated: 2023/11/29 17:52:18 by fosuna-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
-int	ft_tolower(int c)
+void	bzero(void *s, size_t n)
 {
-	if (c >= 'A' && c <= 'Z')
-		c += 32;
-	return (c);
+	ft_memset(s, '\0', n);
+	return (s);
 }
-
-/* int main(void)
-{
-	char    c;
-	
-	c = 'a';
-	c = ft_tolower(c);
-	write(1, &c, 1);
-	write(1, "\n", 1);
-	return (0);
-} */

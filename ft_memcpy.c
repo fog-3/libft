@@ -1,31 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fosuna-g <fosuna-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/03 12:57:35 by fernando          #+#    #+#             */
-/*   Updated: 2023/11/29 16:17:43 by fosuna-g         ###   ########.fr       */
+/*   Created: 2023/11/29 19:12:55 by fosuna-g          #+#    #+#             */
+/*   Updated: 2023/11/29 20:15:40 by fosuna-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
+#include <string.h>
+#include <stdio.h>
 
-int	ft_tolower(int c)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	if (c >= 'A' && c <= 'Z')
-		c += 32;
-	return (c);
+	char	*dest;
+	char	*sourc;
+	size_t	i;
+
+	dest = (char *)dst;
+	sourc = (char *)src;
+	i = 0;
+	while (sourc[i] && i < n)
+	{
+		dest[i] = sourc[i];
+		i++;
+	}
+	return (dest);
 }
 
-/* int main(void)
+/* int	main(void)
 {
-	char    c;
-	
-	c = 'a';
-	c = ft_tolower(c);
-	write(1, &c, 1);
-	write(1, "\n", 1);
+	char	src[] = "hola";
+	char	dst[] = "wakala";
+
+	ft_memcpy(dst, src, 4);
+	printf("%s\n", dst);
 	return (0);
 } */
