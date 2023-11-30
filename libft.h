@@ -6,7 +6,7 @@
 /*   By: fernando <fernando@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 21:13:00 by fosuna-g          #+#    #+#             */
-/*   Updated: 2023/11/30 08:42:05 by fernando         ###   ########.fr       */
+/*   Updated: 2023/11/30 09:02:36 by fernando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,6 @@ void	bzero(void *s, size_t n);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
+void	*ft_memchr(const void *s, int c, size_t n);
 
 #endif
