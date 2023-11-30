@@ -6,19 +6,19 @@
 /*   By: fernando <fernando@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 09:03:44 by fernando          #+#    #+#             */
-/*   Updated: 2023/11/30 09:15:47 by fernando         ###   ########.fr       */
+/*   Updated: 2023/11/30 09:25:30 by fernando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <string.h>
 
-int	ft_memcmp(const void *s1, const void *s2 , size_t n)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	char	*str1;
 	char	*str2;
 	size_t	i;
-	
+
 	i = 0;
 	str1 = (char *)s1;
 	str2 = (char *)s2;
