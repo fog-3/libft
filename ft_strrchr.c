@@ -6,7 +6,7 @@
 /*   By: fosuna-g <fosuna-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 13:05:44 by fernando          #+#    #+#             */
-/*   Updated: 2023/11/29 16:17:22 by fosuna-g         ###   ########.fr       */
+/*   Updated: 2023/12/01 13:37:21 by fosuna-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ char	*ft_strrchr(const char *s, int c)
 		}
 		++s;
 	}
-	if (!bol)
-		return (0);
+	if ((char)c == '\0')
+		return ((char *)s);
 	return (res);
 }
 

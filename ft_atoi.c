@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fernando <fernando@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fosuna-g <fosuna-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 10:12:02 by fernando          #+#    #+#             */
-/*   Updated: 2023/11/30 10:36:37 by fernando         ###   ########.fr       */
+/*   Updated: 2023/12/01 10:27:18 by fosuna-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ int	ft_atoi(const char *nptr)
 	neg = 1;
 	res = 0;
 	i = 0;
-	while (nptr[i] == '\n' || nptr[i] == ' ' || nptr[i] == '\t')
+	while (nptr[i] == '\n' || nptr[i] == ' ' || nptr[i] == '\t'
+		|| nptr[i] == '\v' || nptr[i] == '\f' || nptr[i] == '\r')
 		i++;
 	if (nptr[i] == '-')
 		neg *= -1;

@@ -6,14 +6,13 @@
 /*   By: fosuna-g <fosuna-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 17:48:00 by fosuna-g          #+#    #+#             */
-/*   Updated: 2023/11/29 17:52:18 by fosuna-g         ###   ########.fr       */
+/*   Updated: 2023/12/01 10:03:07 by fosuna-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	bzero(void *s, size_t n)
+void	ft_bzero(void *s, size_t n)
 {
 	ft_memset(s, '\0', n);
-	return (s);
 }

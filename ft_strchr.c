@@ -6,7 +6,7 @@
 /*   By: fosuna-g <fosuna-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 13:00:53 by fernando          #+#    #+#             */
-/*   Updated: 2023/11/29 21:35:41 by fosuna-g         ###   ########.fr       */
+/*   Updated: 2023/12/01 13:24:16 by fosuna-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,23 @@ char	*ft_strchr(const char *s, int c)
 
 	i = 0;
 	res = (char *)s;
-	while (res[i] && res[i] != c)
+	while (res[i])
+	{
+		if (res[i] == (char)c)
+			return ((char *)&res[i]);
 		i++;
-	if (res[i] == '\0')
-		return (0);
-	return (&res[i]);
+	}
+	if (res[i] == (char)c)
+		return ((char *)&res[i]);
+	return (0);
 }
 
 /* int main(void)
 {
-	char    str[] = "Vamooaoo";
-	int     n = 97;
-	
-	printf("%s\n", ft_strchr(str, n));
-	printf("%s\n", strchr(str, n));
+	char    str[] = "teste";
+	int     n = 1024;
+
+	printf("Mi funcion: %s\n", ft_strchr(str, n));
+	printf("Fnc origin: %s\n", strchr(str, n));
 	return (0);
 } */

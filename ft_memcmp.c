@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fernando <fernando@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fosuna-g <fosuna-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 09:03:44 by fernando          #+#    #+#             */
-/*   Updated: 2023/11/30 09:25:30 by fernando         ###   ########.fr       */
+/*   Updated: 2023/12/01 13:50:30 by fosuna-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	i = 0;
 	str1 = (char *)s1;
 	str2 = (char *)s2;
-	while ((str1[i] || str1[i]) && i < n)
+	while (i < n)
 	{
-		if (str1[i] != str2[i])
-			return (str1[i] - str2[i]);
+		if ((unsigned char)str1[i] != (unsigned char)str2[i])
+			return ((unsigned char)str1[i] - (unsigned char)str2[i]);
 		i++;
 	}
 	return (0);
@@ -33,13 +33,13 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 
 /* int	main(void)
 {
-	char    s1[] = "hola buenas";
-	char    s2[] = "hola buenas";
+	char    s1[] = "\xff\xaa\xde\xffMACOSX\xff";
+	char    s2[] = "\xff\xaa\xde\x02";
 	int     res;
 
-	res = ft_memcmp(s1, s2, 13);
-	printf("res: %d\n", res);
-	res = memcmp(s1, s2, 13);
-	printf("res: %d\n", res);
+	res = ft_memcmp(s1, s2, 8);
+	printf("res1: %d\n", res);
+	res = memcmp(s1, s2, 8);
+	printf("res2: %d\n", res);
 	return (0);
 } */

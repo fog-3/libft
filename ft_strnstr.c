@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fernando <fernando@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fosuna-g <fosuna-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 09:17:41 by fernando          #+#    #+#             */
-/*   Updated: 2023/11/30 10:10:50 by fernando         ###   ########.fr       */
+/*   Updated: 2023/12/01 12:20:12 by fosuna-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,19 @@
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	int		i;
+	size_t	i;
 	size_t	j;
 
 	i = 0;
-	while (big[i])
+	if (little[i] == '\0')
+		return ((char *)&big[i]);
+	while (big[i] && i < len)
 	{
 		j = 0;
-		while (big[i] == little[j] && j < len && little[j])
-		{
+		while (big[i + j] == little[j] && (i + j) < len && little[j])
 			j++;
-			i++;
-		}
-		if (little[j] == '\0' || j >= len)
-		{
-			i -= j;
+		if (little[j] == '\0')
 			return ((char *)&big[i]);
-		}
-		if (j > 0 && i > 0)
-			i--;
 		i++;
 	}
 	return (0);
@@ -41,14 +35,14 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 
 /* int	main(void)
 {
-	const char *largestring = "Foo BaBar Baz";
-	const char *smallstring = "Bar";
+	const char *largestring = "MZIRIBMZIRIBMZE123";
+	const char *smallstring = "MZIRIBMZE";
 	char	*ptr1;
 	char	*ptr2;
 
-	ptr1 = ft_strnstr(largestring, smallstring, 2);
-	//ptr2 = strnstr(largestring, smallstring, 4);
+	ptr1 = ft_strnstr(largestring, smallstring, 9);
+	ptr2 = strnstr(largestring, smallstring, 9);
 	printf("Mi funcion: %s\n", ptr1);
-	//printf("Funcion original: %s\n", ptr2);
+	printf("Funcion original: %s\n", ptr2);
 	return (0);
 } */
