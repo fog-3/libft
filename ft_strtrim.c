@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fernando <fernando@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fosuna-g <fosuna-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 14:46:26 by fernando          #+#    #+#             */
-/*   Updated: 2023/12/02 22:09:59 by fernando         ###   ########.fr       */
+/*   Updated: 2023/12/04 11:25:33 by fosuna-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 /* int	main(void)
 {
 	//char *s1 = "  \t \t \n   \n\n\n\t";
- 	//char *s2 = "";
+ 	//char *s2 = "abc ";
 
 	printf("Salida de mi fnc: %s\n", ft_strtrim("", ""));
 	//printf("Salida esperada: %s\n", s2);

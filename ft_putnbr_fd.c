@@ -1,33 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fosuna-g <fosuna-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/01 20:49:17 by fernando          #+#    #+#             */
-/*   Updated: 2023/12/15 11:57:42 by fosuna-g         ###   ########.fr       */
+/*   Created: 2023/12/04 17:43:54 by fosuna-g          #+#    #+#             */
+/*   Updated: 2023/12/04 18:32:18 by fosuna-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s)
+/* void	ft_putnbr_fd(int n, int fd)
 {
-	char	*res;
-	int		size;
-	int		i;
+	char	*s;
 
-	size = (int)ft_strlen(s);
-	res = (char *)malloc(sizeof(char) * (size + 1));
-	if (!res)
-		return (0);
-	i = 0;
-	while (size > i)
+	s = ft_itoa(n);
+	ft_putstr_fd(s, fd);
+	free(s);
+} */
+
+void	ft_putnbr_fd(int n, int fd)
+{
+	char	c;
+
+	if (n == -2147483648)
 	{
-		res[i] = s[i];
-		i++;
+		write(fd, "-2147483648", 11);
+		return ;
 	}
-	res[i] = '\0';
-	return (res);
+	if (n < 0)
+	{
+		n *= -1;
+		write(fd, "-", 1);
+	}
+	if (n > 9)
+	{
+		ft_putnbr_fd(n / 10, fd);
+	}
+	c = n % 10 + '0';
+	write(fd, &c, 1);
 }
