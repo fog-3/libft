@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fernando <fernando@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fosuna-g <fosuna-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 22:16:14 by fernando          #+#    #+#             */
-/*   Updated: 2023/12/03 13:31:32 by fernando         ###   ########.fr       */
+/*   Updated: 2023/12/15 17:20:58 by fosuna-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ static char	**result(char **res, char const *s, char c, int i)
 	inivar(&bol, &st, &j);
 	while (i < ft_countwords(s, c))
 	{
-		if (s[j] == c)
+		if (s[j] == c || s[j] == '\0')
 		{
 			if (!bol)
 			{
@@ -98,14 +98,15 @@ char	**ft_split(char const *s, char c)
 
 /* int	main(void)
 {
-	const char	*s = "  hola que es lo que tu ase   ";
+	const char	*s = "hola hello! ";
 	int			i = 0;
 	char		**res;
+	int			j = 0;
 
 	res = ft_split(s, ' ');
-	while (i < 6)
+	while (res[i])
 	{
-		printf("%d\n", *res[i]);
+		printf("%s\n", res[i]);
 		i++;
 	}
 } */
