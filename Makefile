@@ -7,9 +7,13 @@ SOURCES = ft_isalnum.c ft_isdigit.c ft_memset.c ft_strlcpy.c ft_tolower.c ft_isa
 	ft_split.c ft_itoa.c ft_putchar_fd.c ft_strmapi.c ft_striteri.c ft_putstr_fd.c \
 	ft_putendl_fd.c ft_putnbr_fd.c
 
+BSOURCES = ft_lstnew.c
+
 CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror -I.
+
+BOBJ = ${BSOURCES:.c=.o}
 
 OBJ = ${SOURCES:.c=.o}
 
@@ -18,6 +22,9 @@ all: ${NAME}
 ${NAME}: ${OBJ}
 		ar rcs ${NAME} ${OBJ}
 
+bonus: ${OBJ} ${BOBJ}
+		ar rcs ${NAME} $?
+
 clean:
 		rm -f ${OBJ}
 
@@ -25,4 +32,5 @@ fclean: clean
 		rm -f ${NAME}
 re: fclean all
 
-.PHONY:			all clean fclean re
+
+.PHONY:			all clean fclean bonus re
