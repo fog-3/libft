@@ -6,7 +6,7 @@
 /*   By: fernando <fernando@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 08:00:22 by fernando          #+#    #+#             */
-/*   Updated: 2023/12/20 09:48:17 by fernando         ###   ########.fr       */
+/*   Updated: 2024/03/10 13:57:47 by fernando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,19 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		return (0);
 	cnt = ft_lstsize(lst);
 	aux = 0;
+	res = NULL;
 	while (cnt > 0)
 	{
-		res = ft_lstnew(f(lst->content));
-		if (!res)
+		aux = ft_lstnew(NULL);
+		if (!aux)
 		{
 			ft_lstclear(&res, del);
 			return (0);
 		}
-		ft_lstadd_back(&aux, res);
+		aux->content = f(lst->content);
+		ft_lstadd_back(&res, aux);
 		lst = lst->next;
 		cnt--;
 	}
-	return (aux);
+	return (res);
 }
