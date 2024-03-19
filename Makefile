@@ -16,18 +16,27 @@ CFLAGS = -Wall -Wextra -Werror -I.
 
 BOBJ = ${BSOURCES:.c=.o}
 
+OBJ_PATH = obj/
 OBJ = ${SOURCES:.c=.o}
+OBJS = ${OBJ_PATH}${OBJ}
 
 all: ${NAME}
 
-${NAME}: ${OBJ}
-		ar rcs ${NAME} ${OBJ}
+$(OBJS) : ${OBJ_PATH}
+
+${OBJ_PATH} : 
+	mkdir ${OBJ_PATH}
+
+
+${NAME}: ${OBJS}
+		ar rcs ${NAME} ${OBJS}
 
 bonus: ${OBJ} ${BOBJ}
 		ar rcs ${NAME} $?
 
 clean:
-		rm -f ${OBJ}
+		rm -f ${OBJS}
+		
 
 fclean: clean
 		rm -f ${NAME}
