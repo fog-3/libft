@@ -14,24 +14,16 @@ CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror -I.
 
+OBJS = ${SOURCES:.c=.o}
+
 BOBJ = ${BSOURCES:.c=.o}
 
-OBJ_PATH = obj/
-OBJ = ${SOURCES:.c=.o}
-OBJS = ${OBJ_PATH}${OBJ}
-
 all: ${NAME}
-
-$(OBJS) : ${OBJ_PATH}
-
-${OBJ_PATH} : 
-	mkdir ${OBJ_PATH}
-
 
 ${NAME}: ${OBJS}
 		ar rcs ${NAME} ${OBJS}
 
-bonus: ${OBJ} ${BOBJ}
+bonus: ${OBJS} ${BOBJ}
 		ar rcs ${NAME} $?
 
 clean:
