@@ -28,6 +28,7 @@ bonus: ${OBJS} ${BOBJ}
 
 clean:
 		rm -f ${OBJS}
+		rm -f ${BOBJ}
 		
 
 fclean: clean
